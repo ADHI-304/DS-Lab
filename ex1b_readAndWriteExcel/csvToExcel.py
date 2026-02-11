@@ -1,6 +1,7 @@
 import pandas as pd
 
-df = pd.read_csv(r"C:\DS__lab\dataset\Titanic-Dataset.csv")
+input_file = r"C:\DS__lab\dataset\Titanic-Dataset.csv"
+df = pd.read_csv(input_file)
 
 df.to_excel("Titanic-Dataset.xlsx", index=False)
 
