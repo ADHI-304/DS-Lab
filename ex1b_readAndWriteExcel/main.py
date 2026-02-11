@@ -11,7 +11,7 @@ print(df.shape)
 
 df["new_column"] = "Sample"
 
-output_file = r"C:\DS__lab\ex1b_readAndWriteExcel\Titanic-Dataset-new.xlsx"
+output_file = r"C:\DS__lab\ex1b_readAndWriteExcel\Titanic-Dataset-output.xlsx"
 df.to_excel(output_file, index=False)
 
 print("\nData successfully read from Titanic-Dataset.xlsx")

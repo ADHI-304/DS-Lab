@@ -11,7 +11,7 @@ print(df.shape)
 
 df["new_column"] = "Sample"
 
-output_file = r"C:\DS__lab\ex1a_readAndWriteCSV\Titanic-Dataset-new.csv"
+output_file = r"C:\DS__lab\ex1a_readAndWriteCSV\Titanic-Dataset-output.csv"
 df.to_csv(output_file, index=False)
 
 print("\nData successfully read from input_data.csv")

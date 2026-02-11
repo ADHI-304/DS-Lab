@@ -15,6 +15,7 @@ age_data = df["Age"].dropna()
 
 sample_mean = age_data.mean()
 sample_size = age_data.count()
+print("\n")
 population_mean = float(input("Enter the population mean for Age: "))
 population_stddev = float(input("Enter the population std deviation for Age: "))
 
