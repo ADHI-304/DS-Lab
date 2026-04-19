@@ -1,3 +1,74 @@
+# import numpy as np
+# import pandas as pd
+# from sklearn.model_selection import train_test_split
+# from sklearn.linear_model import LinearRegression
+# from sklearn.metrics import mean_squared_error, r2_score
+# import matplotlib.pyplot as plt
+
+# # ---------------------------------------------------
+# # Step 1: Load Titanic Dataset
+# # ---------------------------------------------------
+# file_path = r"D:\DS-Lab\dataset\Titanic-Dataset.csv"
+# df = pd.read_csv(file_path)
+
+# # Select required numeric columns
+# df = df[['Age', 'Fare']].dropna()
+
+# # ---------------------------------------------------
+# # Step 2: Define features (X) and target (y)
+# # Predict Fare using Age
+# # ---------------------------------------------------
+# X = df[['Age']]     # Feature
+# y = df['Fare']      # Target
+
+# # ---------------------------------------------------
+# # Step 3: Split data
+# # ---------------------------------------------------
+# X_train, X_test, y_train, y_test = train_test_split(
+#     X, y, test_size=0.2, random_state=42
+# )
+
+# # ---------------------------------------------------
+# # Step 4: Create and train the Linear Regression model
+# # ---------------------------------------------------
+# model = LinearRegression()
+# model.fit(X_train, y_train)
+
+# # ---------------------------------------------------
+# # Step 5: Make predictions on test data
+# # ---------------------------------------------------
+# y_pred = model.predict(X_test)
+
+# # ---------------------------------------------------
+# # Step 6: Evaluate the model
+# # ---------------------------------------------------
+# mse = mean_squared_error(y_test, y_pred)
+# r2 = r2_score(y_test, y_pred)
+
+# print("\n")
+# print(f"Mean Squared Error: {mse}")
+# print(f"R-squared: {r2}")
+
+# # ---------------------------------------------------
+# # Step 7: Visualize the results
+# # ---------------------------------------------------
+# plt.scatter(X_test, y_test, color='black', label='Actual')
+# plt.plot(X_test, y_pred, color='blue', linewidth=3, label='Predicted')
+# plt.xlabel('Age')
+# plt.ylabel('Fare')
+# plt.title('Linear Regression: Predicting Titanic Fare using Age')
+# plt.legend()
+# plt.show()
+
+# # ---------------------------------------------------
+# # Step 8: Predict Fare for a new Age (Example: Age = 40)
+# # ---------------------------------------------------
+# new_age = pd.DataFrame({'Age': [40]})
+# predicted_fare = model.predict(new_age)
+
+# print(f"Predicted Fare for a passenger aged 40: ${predicted_fare[0]:.2f}")
+# print("\n")
+
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -5,66 +76,48 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 
-# ---------------------------------------------------
-# Step 1: Load Titanic Dataset
-# ---------------------------------------------------
-file_path = r"D:\DS-Lab\dataset\Titanic-Dataset.csv"
-df = pd.read_csv(file_path)
+# Data (Square Footage, Price)
+data = {
+    'SquareFootage': [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400],
+    'Price': [300000, 320000, 340000, 360000, 380000, 400000, 420000, 440000, 460000, 480000]
+}
 
-# Select required numeric columns
-df = df[['Age', 'Fare']].dropna()
+df = pd.DataFrame(data)
 
-# ---------------------------------------------------
-# Step 2: Define features (X) and target (y)
-# Predict Fare using Age
-# ---------------------------------------------------
-X = df[['Age']]     # Feature
-y = df['Fare']      # Target
+# Define features (X) and target (y)
+X = df[['SquareFootage']]
+y = df['Price']
 
-# ---------------------------------------------------
-# Step 3: Split data
-# ---------------------------------------------------
+# Split data into training and testing
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# ---------------------------------------------------
-# Step 4: Create and train the Linear Regression model
-# ---------------------------------------------------
+# Create and train model
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-# ---------------------------------------------------
-# Step 5: Make predictions on test data
-# ---------------------------------------------------
+# Make predictions
 y_pred = model.predict(X_test)
 
-# ---------------------------------------------------
-# Step 6: Evaluate the model
-# ---------------------------------------------------
+# Evaluate the model
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
-print("\n")
-print(f"Mean Squared Error: {mse}")
-print(f"R-squared: {r2}")
+print("Mean Squared Error:", mse)
+print("R-squared:", r2)
 
-# ---------------------------------------------------
-# Step 7: Visualize the results
-# ---------------------------------------------------
+# Visualization
 plt.scatter(X_test, y_test, color='black', label='Actual')
 plt.plot(X_test, y_pred, color='blue', linewidth=3, label='Predicted')
-plt.xlabel('Age')
-plt.ylabel('Fare')
-plt.title('Linear Regression: Predicting Titanic Fare using Age')
+plt.xlabel('Square Footage')
+plt.ylabel('Price')
+plt.title('Linear Regression: Predicting House Prices')
 plt.legend()
 plt.show()
 
-# ---------------------------------------------------
-# Step 8: Predict Fare for a new Age (Example: Age = 40)
-# ---------------------------------------------------
-new_age = pd.DataFrame({'Age': [40]})
-predicted_fare = model.predict(new_age)
+# Predicting a new value
+new_square_footage = pd.DataFrame({'SquareFootage': [2500]})
+predicted_price = model.predict(new_square_footage)
 
-print(f"Predicted Fare for a passenger aged 40: ${predicted_fare[0]:.2f}")
-print("\n")
+print(f"Predicted price for a house with 2500 square footage: ${predicted_price[0]:.2f}")
