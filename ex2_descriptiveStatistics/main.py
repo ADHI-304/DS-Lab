@@ -1,6 +1,6 @@
 import pandas as pd
 
-csv_file = r"C:\DS__lab\dataset\Titanic-Dataset.csv"
+csv_file = r"D:\DS-Lab\dataset\Titanic-Dataset.csv"
 df = pd.read_csv(csv_file)
 
 summary_stats = df.describe()
@@ -13,7 +13,7 @@ numeric_df = df.select_dtypes(include='number')
 
 quartiles = numeric_df.quantile([0.25, 0.5, 0.75])
 
-print("Summary Statistics:")
+print("Summary Statistics:") 
 print(summary_stats)
 
 print("\nMean:")
@@ -24,5 +24,3 @@ print(median)
 
 print("\nQuartiles:")
 print(quartiles)
-
-print("\n")

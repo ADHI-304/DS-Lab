@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # ---------------------------------------------------
 # Step 1: Load Titanic Dataset
 # ---------------------------------------------------
-file_path = r"C:\DS__lab\dataset\Titanic-Dataset.csv"
+file_path = r"D:\DS-Lab\dataset\Titanic-Dataset.csv"
 df = pd.read_csv(file_path)
 
 # Select required numeric columns

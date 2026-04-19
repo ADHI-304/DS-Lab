@@ -1,18 +1,11 @@
 import pandas as pd
 
-input_file = r"C:\DS__lab\ex1b_readAndWriteExcel\Titanic-Dataset.xlsx"   
-df = pd.read_excel(input_file)
+csv_file = r"D:\DS-Lab\dataset\Titanic-Dataset.csv"
 
-print("First 5 rows of input Excel file:")
-print(df.head())
+excel_file = r"D:\DS-Lab\ex1b_readAndWriteExcel\Titanic-Dataset.xlsx"
 
-print("\nShape of dataset (rows, columns):")
-print(df.shape)
+df = pd.read_csv(csv_file)
 
-df["new_column"] = "Sample"
+df.to_excel(excel_file, index=False)
 
-output_file = r"C:\DS__lab\ex1b_readAndWriteExcel\Titanic-Dataset-output.xlsx"
-df.to_excel(output_file, index=False)
-
-print("\nData successfully read from Titanic-Dataset.xlsx")
-print("Data successfully written to Titanic-Dataset1.xlsx")
+print("CSV successfully converted to Excel")

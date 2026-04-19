@@ -8,7 +8,7 @@ def one_sample_z_test(sample_mean, population_mean, population_stddev, sample_si
     p_value = stats.norm.cdf(z_score)
     return z_score, p_value
 
-file_path = r"C:\DS__lab\dataset\Titanic-Dataset.csv"
+file_path = r"D:\DS-Lab\dataset\Titanic-Dataset.csv"
 df = pd.read_csv(file_path)
 
 age_data = df["Age"].dropna()
@@ -27,4 +27,3 @@ print("\nSample Mean (Age):", sample_mean)
 print("Sample Size:", sample_size)
 print("Z-score:", z_score)
 print("P-value:", p_value)
-print("\n")
